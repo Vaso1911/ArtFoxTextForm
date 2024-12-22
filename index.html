@@ -1,136 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <style type="text/css">
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 40px;
-  color: #000;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px;
+    color: #000;
+  }
 
-h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-.div-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-  width: 466px;
-  height:108px ;
-  background-image: url("s2p.png");
-  background-repeat: no-repeat;
-}
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 
-#title {
-  display: block;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.wrapper {
-  margin-bottom: 30px;
-}
-
-button {
-  padding: 12px 24px;
-  font-weight: 700;
-  border-radius: 200px;
-  border: 1px solid #000;
-  background-color: #E66D1A;
-  color: #000;
-}
-  @media(max-width: 500px) {
   .div-text {
-    width: 320px;
-    height: 74px;
-    background-size: contain;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 466px;
+    height: 108px;
+  }
+
+  .div-text::after {
+    content: url("sw-white.png");
+    position: absolute;
+    left: -400px;
+    z-index: -1;
+  }
+
+  .div-text2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 466px;
+    height: 108px;
+    color: #fff;
+  }
+
+  .div-text2::after {
+    content: url("sw-black.png");
+    position: absolute;
+    left: -400px;
+    z-index: -1;
+  }
+
+  #title {
+    display: block;
+    margin: 0;
+    max-width: 210px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 400;
+    transform: translateY(-5px);
+  }
+
+  .div-text2 #title {
+    transform: translateY(-8px);
+  }
+
+  .wrapper {
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-weight: 700;
+    border-radius: 200px;
+    border: 1px solid #000;
+    background-color: #E66D1A;
+    color: #000;
+  }
+
+  @media(max-width: 500px) {
+    .div-text {
+      width: 320px;
+      height: 74px;
+      background-size: contain;
+    }
   }
 </style>
+
 <body>
-  <div class="div-text">
+  <div class="div-text" id="div-text">
     <h2 id="title">Тут ваш текст</h2>
   </div>
   <form action="" id="form">
     <div class="wrapper">
-          <label>
-      Введите текс
-    <input type="text" name="input-text" id="input-text"> 
-    </label>
+      <h2>Выбирите цвет</h2>
+      <label>
+        <input type="radio" name="group-color" id="black" value="black" >
+        чёрный
+      </label>
+      <label>
+        <input type="radio" name="group-color" id="white" value="white" checked>
+        белый
+      </label>
     </div>
-<div class="wrapper">
-  <h2>Выбирите размер</h2>
+    <div class="wrapper">
       <label>
-      <input type="radio" name="group-size" id="size-16" value="16" checked>
-      16px
-    </label>
-    <label>
-      <input type="radio" name="group-size" id="size-24" value="24">
-      24px
-    </label>
-</div>
-<div class="wrapper">
-  <h2>Выбирите толщину</h2>
+        Введите текс
+        <input type="text" name="input-text" id="input-text">
+      </label>
+    </div>
+    <div class="wrapper">
+      <h2>Выбирите размер</h2>
       <label>
-      <input type="radio" name="group-weight" id="w-400" value="400" checked>
-      400
-    </label>
-    <label>
-      <input type="radio" name="group-weight" id="w-700" value="700">
-      700
-    </label>
-</div>
-<div class="wrapper">
-  <h2>Выбирите курсив</h2>
+        <input type="radio" name="group-size" id="size-16" value="16" checked>
+        16px
+      </label>
       <label>
-      <input type="radio" name="group-style" id="s-italic" value="italic">
-      наклон
-    </label>
-    <label>
-      <input type="radio" name="group-style" id="s-normal" value="normal" checked>
-      без наклона
-    </label>
-</div>
-<button >Посмотреть результат</button>
+        <input type="radio" name="group-size" id="size-24" value="24">
+        24px
+      </label>
+    </div>
+    <div class="wrapper">
+      <h2>Выбирите толщину</h2>
+      <label>
+        <input type="radio" name="group-weight" id="w-400" value="400" checked>
+        400
+      </label>
+      <label>
+        <input type="radio" name="group-weight" id="w-700" value="700">
+        700
+      </label>
+    </div>
+    <div class="wrapper">
+      <h2>Выбирите курсив</h2>
+      <label>
+        <input type="radio" name="group-style" id="s-italic" value="italic">
+        наклон
+      </label>
+      <label>
+        <input type="radio" name="group-style" id="s-normal" value="normal" checked>
+        без наклона
+      </label>
+    </div>
+    <button>Посмотреть результат</button>
   </form>
   <script>
+    const div = document.getElementById('div-text')
     const form = document.getElementById('form')
-const input = document.getElementById('input-text')
-const title = document.getElementById('title')
-const grSize = document.querySelectorAll('[name="group-size"]')
-const grW = document.querySelectorAll('[name="group-weight"]')
-const grS = document.querySelectorAll('[name="group-style"]')
+    const input = document.getElementById('input-text')
+    const title = document.getElementById('title')
+    const grSize = document.querySelectorAll('[name="group-size"]')
+    const grW = document.querySelectorAll('[name="group-weight"]')
+    const grS = document.querySelectorAll('[name="group-style"]')
+    const grColor = document.querySelectorAll('[name="group-color"]')
+
+    grColor.forEach((color) => {
+      color.addEventListener('change', (e)=> {
+        console.log(e.target.value );
+        if(e.target.value == "black") {
+            div.classList.add('div-text2')
+            div.classList.remove('div-text')
+        } else {
+          div.classList.add('div-text')
+          div.classList.remove('div-text2')
+        }
+      })
+    })
+
+    function dataCollection() {
+      input.value != '' ? title.textContent = input.value : title.textContent = 'Тут ваш текст'
+      grSize.forEach(e => {
+        console.dir(e.value);
+        e.checked == true ? title.style.fontSize = `${e.value}px` : null
+      })
+      grW.forEach(e => {
+        e.checked == true ? title.style.fontWeight = e.value : null
+      })
+      grS.forEach(e => {
+        e.checked == true ? title.style.fontStyle = e.value : null
+      })
+    }
 
 
-function dataCollection() {
-  input.value != '' ? title.textContent = input.value : null
-  grSize.forEach(e => {
-    console.dir(e.value);
-    e.checked == true ? title.style.fontSize = `${e.value}px` : null
-  })
-  grW.forEach(e => {
-    e.checked == true ? title.style.fontWeight = e.value : null
-  })
-  grS.forEach(e => {
-    e.checked == true ? title.style.fontStyle = e.value : null
-  })
-}
-
-
-form.addEventListener('submit',(e)=>{
-  e.preventDefault()
-dataCollection()
-})
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      dataCollection()
+    })
 
   </script>
 </body>
+
 </html>
